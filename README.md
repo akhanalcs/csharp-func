@@ -124,5 +124,36 @@ Use this to view files if you'd like.
 5. You'll see the breakpoint being hit and when you continue, you'll see in the output the name of the file and its contents logged.
    
    <img width="1000" alt="image" src="screenshots/breakpoint-is-hit.png">
-   
+6. Stop using `^C`.
+
+### Azure extension issues in VS Code
+The extension gets stuck on infinite loading screen and is extremely slow in VS Code.  
+So I tried logging out and logging in.
+
+1. Ran into issues
+
+   <img width="450" alt="image" src="screenshots/element-already-registered.png">
+2. Find Azure account and log out
+   <p>
+     <img alt="image" src="screenshots/find-azure-account.png" width="400">
+    &nbsp;
+     <img alt="image" src="screenshots/logout-from-azure.png" width="250">
+   </p>
+3. Sign in to Azure
+
+   <img width="250" alt="image" src="screenshots/sign-into-azure.png">
+
+#### Azure extension works great in Rider
+It's works normally in JetBrains Rider when you login through az cli (`az login`) before you login to Rider.
+
+<p>
+  <img alt="image" src="screenshots/azure-ext-in-rider.png" width="350">
+&nbsp;
+  <img alt="image" src="screenshots/sign-into-rider-through-az-cli.png" width="400">
+</p>
+
+### Prepare to publish the function to Azure
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp#prepare-the-azure-storage-account
+
+Just follow along the guide linked above.
 
