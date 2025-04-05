@@ -4,6 +4,9 @@ Trying Azure Functions in various scenarios using C# language.
 ## Trigger Azure Functions on blob containers using an event subscription
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp
 
+Send feedback to MS Learn:
+https://microsoft.qualtrics.com/jfe/form/SV_6hUVpRBU3hQVnZY?original_url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fazure-functions%2Ffunctions-event-grid-blob-trigger%3Fpivots%3Dprogramming-language-csharp&locale=en-us&pageTemplate=Conceptual
+
 ### Local setup
 1. Install VS Code.
 2. Install `C# Dev Kit` extension. It brings `C#` extension with it. Follow the "Get Started with C# Dev Kit" steps:
@@ -160,3 +163,53 @@ It's works normally in JetBrains Rider when you login through az cli (`az login`
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp#prepare-the-azure-storage-account
 
 Just follow along the guide linked above.
+
+#### Create Azure Storage account
+Creating storage account from VS Code creates a new storage account under a new resource group it creates that has the same name as the storage account name.
+That's why I opted to do this using JetBrains Rider Azure extension.
+
+<p>
+  <img alt="image" src="screenshots/rg-create.png" width="350">
+&nbsp;
+  <img alt="image" src="screenshots/create-storage-account.png" width="350">
+</p>
+
+Also create a new container inside **rg-func-example** > **ashk12** > **Blob Containers** > Name it: **samples-workitems**
+
+#### Create Azure function
+F1 > enter **Azure Functions: Create function app in Azure...(Advanced)**
+
+<p>
+  <img alt="image" src="screenshots/func-app-create-1.png" width="400">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-create-2.png" width="350">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-create-3.png" width="400">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-create-4.png" width="285">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-create-5.png" width="385">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-create-6.png" width="400">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-create-7.png" width="350">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-create-8.png" width="400">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-create-9.png" width="400">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-create-10.png" width="385">
+</p>
+
+<img alt="image" src="screenshots/func-app-create-11.png" width="350">
+
+
+
