@@ -242,9 +242,9 @@ Because required application settings from the local.settings.json file aren't a
   <img alt="image" src="screenshots/download-remote-settings-1.png" width="350">
 &nbsp;
   <img alt="image" src="screenshots/download-remote-settings-2.png" width="350">
-&nbsp;
-  <img alt="image" src="screenshots/download-remote-settings-3.png" width="200">
 </p>
+
+<img alt="image" src="screenshots/download-remote-settings-3.png" width="200">
 
 Now the `local.settings.json` file will look like below:
 ```json
@@ -265,10 +265,12 @@ Now the `local.settings.json` file will look like below:
 Now upload this using:
 
 <p>
-  <img alt="image" src="screenshots/upload-local-settings-1.png" width="400">
+  <img alt="image" src="screenshots/upload-local-settings-1.png" width="380">
 &nbsp;
-  <img alt="image" src="screenshots/upload-local-settings-2.png" width="400">
+  <img alt="image" src="screenshots/upload-local-settings-2.png" width="380">
+&nbsp;
+  <img alt="image" src="screenshots/upload-local-settings-3.png" width="400">
 </p>
 
-<img alt="image" src="screenshots/upload-local-settings-3.png" width="400">
+
 
