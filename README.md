@@ -160,5 +160,3 @@ It's works normally in JetBrains Rider when you login through az cli (`az login`
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp#prepare-the-azure-storage-account
 
 Just follow along the guide linked above.
-
-[![Loading issue is solved](https://i.sstatic.net/4aoJmfTL.png "Loading issue is solved")](https://i.sstatic.net/4aoJmfTL.png) 
