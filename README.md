@@ -212,5 +212,25 @@ F1 > enter **Azure Functions: Create function app in Azure...(Advanced)**
 
 <img alt="image" src="screenshots/func-app-create-11.png" width="450">
 
+### Deploy your function code
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp#deploy-your-function-code
+
+<p>
+  <img alt="image" src="screenshots/func-app-deploy-1.png" width="450">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-deploy-2.png" width="420">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-deploy-3.png" width="450">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-deploy-4.png" width="420">
+</p>
+
+<p>
+  <img alt="image" src="screenshots/func-app-deploy-5.png" width="450">
+&nbsp;
+  <img alt="image" src="screenshots/func-app-deploy-6.png" width="420">
+</p>
 
 
