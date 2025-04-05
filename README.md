@@ -166,12 +166,13 @@ Just follow along the guide linked above.
 
 #### Create Azure Storage account
 Creating storage account from VS Code creates a new storage account under a new resource group it creates that has the same name as the storage account name.
+
 That's why I opted to do this using JetBrains Rider Azure extension.
 
 <p>
-  <img alt="image" src="screenshots/rg-create.png" width="350">
+  <img alt="image" src="screenshots/rg-create.png" width="385">
 &nbsp;
-  <img alt="image" src="screenshots/create-storage-account.png" width="350">
+  <img alt="image" src="screenshots/create-storage-account.png" width="330">
 </p>
 
 Also create a new container inside **rg-func-example** > **ashk12** > **Blob Containers** > Name it: **samples-workitems**
@@ -180,36 +181,36 @@ Also create a new container inside **rg-func-example** > **ashk12** > **Blob Con
 F1 > enter **Azure Functions: Create function app in Azure...(Advanced)**
 
 <p>
-  <img alt="image" src="screenshots/func-app-create-1.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-1.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-2.png" width="350">
+  <img alt="image" src="screenshots/func-app-create-2.png" width="400">
 </p>
 
 <p>
-  <img alt="image" src="screenshots/func-app-create-3.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-3.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-4.png" width="285">
+  <img alt="image" src="screenshots/func-app-create-4.png" width="350">
 </p>
 
 <p>
-  <img alt="image" src="screenshots/func-app-create-5.png" width="385">
+  <img alt="image" src="screenshots/func-app-create-5.png" width="450">
 &nbsp;
   <img alt="image" src="screenshots/func-app-create-6.png" width="400">
 </p>
 
 <p>
-  <img alt="image" src="screenshots/func-app-create-7.png" width="350">
+  <img alt="image" src="screenshots/func-app-create-7.png" width="450">
 &nbsp;
   <img alt="image" src="screenshots/func-app-create-8.png" width="400">
 </p>
 
 <p>
-  <img alt="image" src="screenshots/func-app-create-9.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-9.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-10.png" width="385">
+  <img alt="image" src="screenshots/func-app-create-10.png" width="400">
 </p>
 
-<img alt="image" src="screenshots/func-app-create-11.png" width="350">
+<img alt="image" src="screenshots/func-app-create-11.png" width="450">
 
 
 
