@@ -272,5 +272,78 @@ Now upload this using:
   <img alt="image" src="screenshots/upload-local-settings-3.png" width="400">
 </p>
 
+### Build endpoint url to create an event subscription
+Grab blob extension access key from your function app in Azure portal:
 
+<img alt="image" src="screenshots/func-open-in-portal.png" width="350">
 
+<img alt="image" src="screenshots/upload-local-settings-3.png" width="800">
+
+```
+FUNCTION_APP_NAME = ashk-func-app
+FUNCTION_NAME = EventGridBlobTrigger
+BLOB_EXTENSION_KEY = <from above>
+```
+
+`https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION_NAME>&code=<BLOB_EXTENSION_KEY>`
+
+### Create event subscription
+An event subscription, powered by Azure Event Grid, raises events based on changes in the subscribed blob container. 
+
+This event is then sent to the blob extension endpoint for your function.
+After you create an event subscription, you can't update the endpoint URL.
+
+1. Go to your storage account you created earlier in Azure Portal.
+2. "ashk12" > **Events** > **+ Event Subscription**
+
+   <img alt="image" src="screenshots/create-event-sub-1.png" width="800">
+
+   <img alt="image" src="screenshots/create-event-sub-2.png" width="800">
+3. Hit create.
+
+   <img alt="image" src="screenshots/sub-not-registered-error.png" width="300">
+
+#### Fix "subscription not registered to use namespace" error
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal
+
+<img alt="image" src="screenshots/az-portal-rsc-providers.png" width="800">
+
+<img alt="image" src="screenshots/check-sub-reg-status-cli.png" width="800">
+
+Either use CLI or Portal to register the resource provider.
+
+```bash
+$ az provider register --namespace Microsoft.EventGrid
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.EventGrid'
+```
+
+Try step 3 from above. It succeeds this time.
+
+<img alt="image" src="screenshots/event-sub-creation-success.png" width="350">
+
+Tip: You can visualize resources in Portal.
+
+<img alt="image" src="screenshots/resource-visualizer.png" width="1000">
+
+### Upload file to the container
+Upload `test.txt` and `test1.txt` files through Azure portal.
+
+<img alt="image" src="screenshots/upload-blob-portal.png" width="1000">
+
+See that the event was delivered:
+
+<img alt="image" src="screenshots/blob-event-delivered.png" width="1000">
+
+### Verify function in Azure
+Open the function app and click "Invocation and more" in the function name.
+
+<img alt="image" src="screenshots/func-name-portal.png" width="1000">
+
+Check out the function invocation.
+
+<img alt="image" src="screenshots/function-invocations.png" width="1000">
+
+### Clean up resources
+Delete the resource group: `rg-func-example`.
+
+<img alt="image" src="screenshots/rg-func-example.png" width="1000">
