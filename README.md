@@ -69,12 +69,12 @@ Enter the name: `samples-workitems` > Press Enter.
 
 Expand **Blob Containers** > **samples-workitems** and select **Upload files** > `/` > Enter > Select the file.
 
-<img width="450" alt="image" src="screenshots/upload-file-to-azurite.png">
+<img width="400" alt="image" src="screenshots/upload-file-to-azurite.png">
 
 #### Browse using Azure Storage Explorer (not necessary though)
 Use this to view files if you'd like. 
 
-<img width="750" alt="image" src="screenshots/az-storage-explorer.png">
+<img width="1000" alt="image" src="screenshots/az-storage-explorer.png">
 
 ### Run the function locally
 1. Set a breakpoint inside `EventGridBlobTrigger.Run()` method and press F5 to start your project for local debugging.  
@@ -110,19 +110,19 @@ Use this to view files if you'd like.
 
    The solution was to start all services with: `F1 -> Azurite: Start`
 
-   <img width="350" alt="image" src="screenshots/start-all-azurite-svcs.png">
+   <img width="450" alt="image" src="screenshots/start-all-azurite-svcs.png">
 
    To turn them all off: `F1 -> Azurite: Close`
 
 2. Azure Icon in the left side bar > **Workspace** > **Local Project** > **Functions**, right click the function, and select **Execute Function Now**.
 3. Put the correct file name (`test.txt`) when it asks you to enter the request body.
    
-   <img width="550" alt="image" src="screenshots/enter-request-body.png">
+   <img width="600" alt="image" src="screenshots/enter-request-body.png">
 4. Press Enter to run the function. The value you provided is the path to your blob in the local emulator. 
    This string gets passed to your trigger in the request payload, which simulates the payload when an event 
    subscription calls your function to report a blob being added to the container.
 5. You'll see the breakpoint being hit and when you continue, you'll see in the output the name of the file and its contents logged.
    
-   <img width="700" alt="image" src="screenshots/breakpoint-is-hit.png">
+   <img width="1000" alt="image" src="screenshots/breakpoint-is-hit.png">
    
 
