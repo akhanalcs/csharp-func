@@ -189,25 +189,25 @@ F1 > enter **Azure Functions: Create function app in Azure...(Advanced)**
 <p>
   <img alt="image" src="screenshots/func-app-create-3.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-4.png" width="350">
+  <img alt="image" src="screenshots/func-app-create-4.png" width="400">
 </p>
 
 <p>
   <img alt="image" src="screenshots/func-app-create-5.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-6.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-6.png" width="420">
 </p>
 
 <p>
   <img alt="image" src="screenshots/func-app-create-7.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-8.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-8.png" width="420">
 </p>
 
 <p>
   <img alt="image" src="screenshots/func-app-create-9.png" width="450">
 &nbsp;
-  <img alt="image" src="screenshots/func-app-create-10.png" width="400">
+  <img alt="image" src="screenshots/func-app-create-10.png" width="420">
 </p>
 
 <img alt="image" src="screenshots/func-app-create-11.png" width="450">
