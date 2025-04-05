@@ -135,21 +135,21 @@ So I tried logging out and logging in.
    <img width="450" alt="image" src="screenshots/element-already-registered.png">
 2. Find Azure account and log out
    <p>
-     <img alt="image" src="screenshots/find-azure-account.png" width="400">
+     <img alt="image" src="screenshots/find-azure-account.png" width="450">
     &nbsp;
-     <img alt="image" src="screenshots/logout-from-azure.png" width="250">
+     <img alt="image" src="screenshots/logout-from-azure.png" width="200">
    </p>
 3. Sign in to Azure
 
-   <img width="250" alt="image" src="screenshots/sign-into-azure.png">
+   <img width="300" alt="image" src="screenshots/sign-into-azure.png">
 
 #### Azure extension works great in Rider
 It's works normally in JetBrains Rider when you login through az cli (`az login`) before you login to Rider.
 
 <p>
-  <img alt="image" src="screenshots/azure-ext-in-rider.png" width="350">
+  <img alt="image" src="screenshots/azure-ext-in-rider.png" width="300">
 &nbsp;
-  <img alt="image" src="screenshots/sign-into-rider-through-az-cli.png" width="400">
+  <img alt="image" src="screenshots/sign-into-rider-through-az-cli.png" width="300">
 </p>
 
 ### Prepare to publish the function to Azure
