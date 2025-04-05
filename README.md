@@ -1,9 +1,10 @@
 # csharp-func
 Trying Azure Functions in various scenarios using C# language.
 
+## Trigger Azure Functions on blob containers using an event subscription
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp
 
-## Local setup
+### Local setup
 1. Install VS Code.
 2. Install `C# Dev Kit` extension. It brings `C#` extension with it. Follow the "Get Started with C# Dev Kit" steps:
    - Connect account: Sign in with your Microsoft account.
@@ -22,12 +23,13 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blo
        /opt/homebrew/bin/func
        ```
 4. Install the [Azurite v3 extension](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) for Visual Studio Code.
+   - It gets installed at: `/Users/ashishkhanal/.vscode/extensions/azurite.azurite-3.34.0`
    - Or if you're using Rider, install Azurite using npm (not necessary if you're using VSCode).
       - Install
         ```bash
         npm install -g azurite
         ```
-      - Check the location where it's installed. You'll use this to tell Rider where to find Azurite.
+      - Check the location where it's installed. You'll use this to tell Rider where to find Azurite (Settings -> Tools -> Azure -> Azurite).
         ```bash
         $ which azurite
         /Users/ashishkhanal/.nvm/versions/node/v23.10.0/bin/azurite
@@ -39,19 +41,88 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blo
 6. Install Azure Storage explorer.
    - https://azure.microsoft.com/en-us/products/storage/storage-explorer
 
-## Trigger Azure Functions on blob containers using an event subscription
+### Create a blob triggered function
+Using Visual Studio makes this process quite easy.
 
-### Issues
-```bash
-Functions:
-
-        EventGridBlobTrigger: blobTrigger
-
-For detailed output, run func with --verbose flag.
-[2025-04-04T19:35:27.839Z] Host lock lease acquired by instance ID '0000000000000000000000006845BABF'.
-[2025-04-04T19:35:48.015Z] An unhandled exception has occurred. Host is shutting down.
-[2025-04-04T19:35:48.015Z] Azure.Core: Connection refused (127.0.0.1:10001). System.Net.Http: Connection refused (127.0.0.1:10001). System.Net.Sockets: Connection refused.
-[2025-04-04T19:35:53.466Z] Unable to get table reference or create table. Aborting write operation.
-[2025-04-04T19:35:53.467Z] Azure.Core: Connection refused (127.0.0.1:10002). System.Net.Http: Connection refused (127.0.0.1:10002). System.Net.Sockets: Connection refused.
- *  Terminal will be reused by tasks, press any key to close it. 
+### Prepare local storage emulation
+Make sure your `local.settings.json` has `AzureWebJobsStorage` pointing to local storage.
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "5f2f77_STORAGE": "UseDevelopmentStorage=true"
+  }
+}
 ```
+
+#### Start Azurite Blob Storage service emulator
+Press F1 to open the command palette, type `Azurite: Start Blob Service`, and press enter.
+
+<img width="350" alt="image" src="screenshots/blob-service-listens.png">
+
+#### Upload file to Azurite
+Azure Icon in the left side bar > **Workspace** > **Attached Storage Accounts** > **Local Emulator** >, right click **Blob Containers** > **Create Blob Container**
+
+Enter the name: `samples-workitems` > Press Enter.
+
+Expand **Blob Containers** > **samples-workitems** and select **Upload files** > `/` > Enter > Select the file.
+
+<img width="450" alt="image" src="screenshots/upload-file-to-azurite.png">
+
+#### Browse using Azure Storage Explorer (not necessary though)
+Use this to view files if you'd like. 
+
+<img width="750" alt="image" src="screenshots/az-storage-explorer.png">
+
+### Run the function locally
+1. Set a breakpoint inside `EventGridBlobTrigger.Run()` method and press F5 to start your project for local debugging.  
+   Azure Functions Core tools will run in your Terminal window.
+
+   But we have a problem!
+   ```bash
+   Azure Functions Core Tools
+   Core Tools Version:       4.0.7030 Commit hash: N/A +bb4c949899cd5659d6bfe8b92cc923453a2e8f88 (64-bit)
+   Function Runtime Version: 4.1037.0.23568
+   
+   [2025-04-05T03:39:20.168Z] Found /Users/ashishkhanal/RiderProjects/csharp-func/csharp-func.csproj. Using for user secrets file configuration.
+   [2025-04-05T03:39:21.161Z] Worker process started and initialized.
+   
+   Functions:
+   
+           EventGridBlobTrigger: blobTrigger
+   
+   For detailed output, run func with --verbose flag.
+   [2025-04-05T03:39:26.162Z] Host lock lease acquired by instance ID '0000000000000000000000006845BABF'.
+   [2025-04-05T03:39:45.423Z] An unhandled exception has occurred. Host is shutting down.
+   [2025-04-05T03:39:45.424Z] Azure.Core: Connection refused (127.0.0.1:10001). System.Net.Http: Connection refused (127.0.0.1:10001). System.Net.Sockets: Connection refused.
+   [2025-04-05T03:39:51.450Z] Unable to get table reference or create table. Aborting write operation.
+   [2025-04-05T03:39:51.450Z] Azure.Core: Connection refused (127.0.0.1:10002). System.Net.Http: Connection refused (127.0.0.1:10002). System.Net.Sockets: Connection refused.
+    *  Terminal will be reused by tasks, press any key to close it. 
+   ```
+   
+   **Cause of the issue:**
+
+   The instruction in the docs to only start blob service causes this.
+   
+   **Solution:**
+
+   The solution was to start all services with: `F1 -> Azurite: Start`
+
+   <img width="350" alt="image" src="screenshots/start-all-azurite-svcs.png">
+
+   To turn them all off: `F1 -> Azurite: Close`
+
+2. Azure Icon in the left side bar > **Workspace** > **Local Project** > **Functions**, right click the function, and select **Execute Function Now**.
+3. Put the correct file name (`test.txt`) when it asks you to enter the request body.
+   
+   <img width="550" alt="image" src="screenshots/enter-request-body.png">
+4. Press Enter to run the function. The value you provided is the path to your blob in the local emulator. 
+   This string gets passed to your trigger in the request payload, which simulates the payload when an event 
+   subscription calls your function to report a blob being added to the container.
+5. You'll see the breakpoint being hit and when you continue, you'll see in the output the name of the file and its contents logged.
+   
+   <img width="700" alt="image" src="screenshots/breakpoint-is-hit.png">
+   
+
