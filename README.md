@@ -233,4 +233,42 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blo
   <img alt="image" src="screenshots/func-app-deploy-6.png" width="420">
 </p>
 
+### Update application settings
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger?pivots=programming-language-csharp#update-application-settings
+
+Because required application settings from the local.settings.json file aren't automatically published, you must upload them to your function app so that your function runs correctly in Azure.
+
+<p>
+  <img alt="image" src="screenshots/download-remote-settings-1.png" width="350">
+&nbsp;
+  <img alt="image" src="screenshots/download-remote-settings-2.png" width="350">
+</p>
+
+<img alt="image" src="screenshots/download-remote-settings-3.png" width="200">
+
+The `local.settings.json` file will look like below:
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=ashk12;AccountKey=<key1>;EndpointSuffix=core.windows.net",
+    // Remove this as it isn't supported in Flex consumption plan
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    // Replace this setting value with the one from AzureWebJobsStorage above.
+    "5f2f77_STORAGE": "UseDevelopmentStorage=true",
+    "DEPLOYMENT_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=ashk12;AccountKey=<key1>;EndpointSuffix=core.windows.net",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=<key2>;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/;ApplicationId=<key3>"
+  }
+}
+```
+
+Now upload this using:
+
+<p>
+  <img alt="image" src="screenshots/upload-local-settings-1.png" width="400">
+&nbsp;
+  <img alt="image" src="screenshots/upload-local-settings-2.png" width="400">
+</p>
+
+<img alt="image" src="screenshots/upload-local-settings-3.png" width="400">
 
