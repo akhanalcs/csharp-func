@@ -242,11 +242,11 @@ Because required application settings from the local.settings.json file aren't a
   <img alt="image" src="screenshots/download-remote-settings-1.png" width="350">
 &nbsp;
   <img alt="image" src="screenshots/download-remote-settings-2.png" width="350">
+&nbsp;
+  <img alt="image" src="screenshots/download-remote-settings-3.png" width="200">
 </p>
 
-<img alt="image" src="screenshots/download-remote-settings-3.png" width="200">
-
-The `local.settings.json` file will look like below:
+Now the `local.settings.json` file will look like below:
 ```json
 {
   "IsEncrypted": false,
