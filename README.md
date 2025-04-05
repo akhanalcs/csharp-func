@@ -125,6 +125,7 @@ Use this to view files if you'd like.
    
    <img width="1000" alt="image" src="screenshots/breakpoint-is-hit.png">
 6. Stop using `^C`.
+7. More info on debugging in VS Code: https://code.visualstudio.com/docs/csharp/debugging
 
 ### Azure extension issues in VS Code
 The extension gets stuck on infinite loading screen and is extremely slow in VS Code.  
@@ -139,9 +140,12 @@ So I tried logging out and logging in.
     &nbsp;
      <img alt="image" src="screenshots/logout-from-azure.png" width="200">
    </p>
-3. Sign in to Azure
+3. Sign in to Azure using az cli within VS Code terminal. I'm not sure if this step helped or not.
+4. Sign in to Azure using VS Code Azure extension.
 
    <img width="300" alt="image" src="screenshots/sign-into-azure.png">
+
+This solved the issue!
 
 #### Azure extension works great in Rider
 It's works normally in JetBrains Rider when you login through az cli (`az login`) before you login to Rider.
@@ -157,3 +161,4 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blo
 
 Just follow along the guide linked above.
 
+[![Loading issue is solved](https://i.sstatic.net/4aoJmfTL.png "Loading issue is solved")](https://i.sstatic.net/4aoJmfTL.png) 
