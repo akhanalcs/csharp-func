@@ -293,6 +293,11 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
 This event is then sent to the blob extension endpoint for your function.
 After you create an event subscription, you can't update the endpoint URL.
 
+**Note (AI generated):** An Event Grid system topic in Azure is designed to handle events published by Azure services, 
+such as Azure Storage. For instance, when a blob is uploaded to a storage account, the Azure Storage service can publish 
+a "blob created" event to the system topic in Event Grid. This event is then forwarded to the topic's subscribers, 
+which could include your Azure Function that is set up to handle such events.
+
 1. Go to your storage account you created earlier in Azure Portal.
 2. "ashk12" > **Events** > **+ Event Subscription**
 
@@ -335,7 +340,7 @@ See that the event was delivered:
 <img alt="image" src="screenshots/blob-event-delivered.png" width="1000">
 
 ### Verify function in Azure
-Open the function app and click "Invocation and more" in the function name.
+Open the function app and click "Invocations and more" in the function name.
 
 <img alt="image" src="screenshots/func-name-portal.png" width="1000">
 
