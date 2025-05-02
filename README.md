@@ -288,7 +288,7 @@ BLOB_EXTENSION_KEY = <from above>
 `https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION_NAME>&code=<BLOB_EXTENSION_KEY>`
 
 ### Create event subscription
-An event subscription, powered by Azure Event Grid, raises events based on changes in the subscribed blob container. 
+An event subscription, powered by Azure Event Grid, raises events based on changes in the subscribed blob container. [Watch this video for an example](https://youtu.be/LW7ERsClK9U?si=5phY6khbgcQ3vTW0&t=377).
 
 This event is then sent to the blob extension endpoint for your function.
 After you create an event subscription, you can't update the endpoint URL.
